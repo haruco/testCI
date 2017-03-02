@@ -46,11 +46,15 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        let val1 = pickerView1.selectedRow(inComponent: 0)
-        let val2 = pickerView2.selectedRow(inComponent: 0)
+        let val1 = pickerView1.selectedRowInComponent(component)
+        let val2 = pickerView2.selectedRowInComponent(component)
         
         labelResult.text = "\(timeTable.multiply(val1, b: val2))"
     }
     
+    func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int{
+        return 1
+    }
+
 }
 
